@@ -1,0 +1,19 @@
+language: python
+python:
+- '3.5'
+- '3.6'
+install:
+- pip install mypy mypy-extensions
+- pip install --upgrade .
+script:
+- mypy src --ignore-missing-imports
+notifications:
+  email: false
+deploy:
+  - provider: pypi
+    user: ChrisTimperley
+    password:
+      secure: "cr+FJZoq3W7wt0fNNNf+m7DR6vwF0A+SlZZPuzpp9Bd9uclmVWDbXTz0qrkRLIt09BtrNLgY5Jl+aV3WSfoCtq3XLQTCamiNJLh7SoQfFdBOYA6jGQxLNQijBj/zmBV8KEgdGyEF2NN9maJ8Kz4kM82u5veNTsRxs8yHwif28788GmrFmXIMkkMQkWuijlILTREW/WGh/vAICYS73T8XurzycVdL3Y32zEa1RBkB6EZMPwsi8ePHY6ndcZfnwWxgyjgavK7cRPxx4s7Zk+xs+S+zUkjHaBTNoGp/Sc1BMiqKhHYYttAPtnqeT//SOQ+cktqFSMg/gZ0lWsQXTkcutdvyZBDh6dCXTEi58c7VY4N9Ad4vPeyDgoIhiNAPFT5gUBhg8kR24oRU9LfbRrnwyRcfapUxgZThD/BoPd8ryfVANg6TYz7yrsplUj6rgXAENXnquS96Z6Dyrf1f3xcnIR1iUmaHOJfm2ErtIQF87zP2CkNzN1Dwegp636nS9l+vcqC9a2GceFls1CsFf2SJDZZrYYRajX1AcTC3/rMREIC0tYNlzjEK+A7QSTMgPCmKfGOhXKCZcVo3F5oX0i0dTJ/DnxIJ++kALcySJzH2wWTTXkeBA4zYu/s8u5r9gJtK6cF9VJc+05S8IASq+Bz1Sv4Sj/8uAGRzHc7ogVeRxmo="
+    on:
+      tags: true
+      python: 3.5
